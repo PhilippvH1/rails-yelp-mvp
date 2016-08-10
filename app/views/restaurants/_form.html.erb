@@ -1,0 +1,13 @@
+<%= form_for(@restaurant) do |restaurant| %>
+  <%= restaurant.label :name %>
+  <%= restaurant.text_field :name %>
+
+  <%= restaurant.label :address %>
+  <%= restaurant.text_field :address %>
+
+  <%= restaurant.label :category %>
+  <%= restaurant.select :category, ["chinese", "italian", "japanese", "french", "belgian"]%>
+
+
+  <%= restaurant.submit %>
+<% end %>
