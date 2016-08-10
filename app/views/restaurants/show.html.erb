@@ -1,18 +1,33 @@
-<h3>Name</h3><%= @restaurant.name %>
-<h3>Address</h3><%= @restaurant.address %>
-<h3>Reviews</h3>
-  <% @restaurant.reviews.each do |review| %>
-    <p>
-     Content: <%= review.content %>
-    </p>
-    <p>
-      Rating: <%= review.rating %>
-    </p>
-  <% end %>
-<p>
-  <%= link_to "New review", new_restaurant_review_path(@restaurant) %>
-</p>
+<div class="media">
+  <div class="media-body">
+    <div class="media-section">
+      <h2><%= @restaurant.name %></h2>
+      <img src="https://hd.unsplash.com/photo-1452776145041-517a74be1f14">
+    </div>
+    <div class="media-section">
+      <h2>Address</h2>
+      <%= @restaurant.address %>
+      <p>
+        <%= link_to "Go home", restaurants_path %>
+      </p>
+    </div>
+  </div>
+  <div class="media-aside">
+    <div class="media-section">
+      <h2>Reviews</h2>
+      <% @restaurant.reviews.each do |review| %>
+      <p>
+       Review: <%= review.content %>
+      </p>
+      <p>
+        Rating: <%= review.rating %>
+      </p>
+    <% end %>
+    </div>
+    <div class="media-section">
+      <h3>Your review</h3>
+      <%= render 'reviews/form', review: @review, restaurant: @restaurant %>
 
-<p>
-<%= link_to "Go home", restaurants_path %>
-</p>
+    </div>
+  </div>
+</div>
